@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form action="nuevo.php" method="POST" >
+    <form action="nuevoCliente.php" method="POST" >
         <div class="text-center">
         <h1>Registro de Clientes</h1>
 

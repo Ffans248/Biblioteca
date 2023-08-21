@@ -1,19 +1,19 @@
 <?php
 //CONEXION
 $server = "localhost";
-$user = "id20936459_ffans";
-$pass = "GtXfFHBRN$&pW3Peyin";
-$db = "id20936459_programacion";
+$user = "root";
+$pass = "";
+$db = "Biblioteca";
 $conn = mysqli_connect($server,$user,$pass,$db);
 if(!$conn){
     die("La conexion fallo: ". mysqli_connect_error());
 }else{
-    $nombre = $_POST['nombres'];
+    $nombre = $_POST['nombre'];
     $apellido = $_POST['apellidos'];
     $correo = $_POST['correo'];
     $tel = $_POST['tel'];
 
-    $sql = "INSERT INTO usuarios (nombre, apellido,correo,pass)
+    $sql = "INSERT INTO clientes (nombres, apellidos,correo,tel)
     VALUE ('". $nombre ."','". $apellido ."', '". $correo ."',
     '". $tel ."')";
 

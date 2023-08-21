@@ -25,23 +25,22 @@
 
   <?php
 //CONEXION
-$server = "localhost";
-$user = "id20936459_ffans";
-$pass = "GtXfFHBRN$&pW3Peyin";
-$db = "id20936459_programacion";
+
+include("conexiondb.php");
 $conn = mysqli_connect($server,$user,$pass,$db);
 if(!$conn){
     die("La conexion fallo: ". mysqli_connect_error());
 }else{
-    $sql = "SELECT * FROM usuarios";
+    $sql = "SELECT * FROM clientes";
     $resultado = mysqli_query($conn, $sql);
     if($resultado){
         while($row = $resultado->fetch_array()){
             echo "<tr>";
             echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['nombre'] ."</td>";
-            echo "<td>" . $row['apellido'] ."</td>";
+            echo "<td>" . $row['nombres'] ."</td>";
+            echo "<td>" . $row['apellidos'] ."</td>";
             echo "<td>" . $row['correo'] ."</td>";
+            echo "<td>" . $row['tel'] ."</td>";
             ?>
             <td><a href="actualizar.php?clave=<?php echo $row['id'];?>"> <button type="button" class="btn btn-warning"><i class="bi bi-pen"> </i></button> </a>
             <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>  </td>
