@@ -42,6 +42,10 @@ if ($varsession==null||$varsession='') {
     <div class="form-field">
       <input class="btn" type="submit" name="log" value="Iniciar sesion">
     </div>
+    <div mb-3 mx-auto>
+    <a href="signin.php">Registrarse</a>
+    </div>
+    
     <?php 
   include("conexiondb.php");
   include("validar.php");

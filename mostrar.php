@@ -60,7 +60,7 @@ if(!$conn){
             echo "<td>" . $row['tel'] ."</td>";
             ?>
             <td> <a href="Prestamo.php?id=<?php echo $row['id']; ?>&nombres=<?php echo urlencode($row['nombres']); ?>&apellidoss=<?php echo urlencode($row['apellidos']); ?>&correo=<?php echo urlencode($row['correo']); ?>&tel=<?php echo urlencode($row['tel']);?>"><i class="bi bi-plus"></i></button></a>
-            <a href="estado.php?clave=<?php echo $row['id'];?>"> <button type="button" class=""><i class="bi bi-eye"> </i></button> </a></td>
+            <a href="prestamosCliente.php?clave=<?php echo $row['id'];?>"> <button type="button" class=""><i class="bi bi-eye"> </i></button> </a></td>
             <?php
             echo "</tr>";
         }

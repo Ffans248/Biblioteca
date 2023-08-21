@@ -63,7 +63,7 @@ if(!$conn){
     die("La conexión fallo: " . mysqli_connect_error());
 }else{
     $idCliente = $_GET['clave'];
-    $sql = "SELECT * FROM prestamo where id = $idCliente ";
+    $sql = "SELECT * FROM prestamo where id_clientes = $idCliente ";
     $resultado = mysqli_query($conn, $sql);
     if($resultado){
         while($row = $resultado->fetch_array()){
