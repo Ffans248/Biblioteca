@@ -21,7 +21,7 @@ $Tel= $_GET['tel'];
 <body>
     <form action="nuevoPrestamo.php" method="POST" >
         <div class="text-center">
-        <h1>Registro de Libros</h1>
+        <h1>Registrar un prestamo</h1>
 
         </div>
     <div style="margin: 15px;">

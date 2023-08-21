@@ -46,6 +46,7 @@ if ($varsession == null || $varsession == '') {
       <th scope="col">Fecha de devolucion</th>
       <th scope="col">ID Usuario</th>
       <th scope="col">Usuario</th>
+      <th scope="col">Libro Prestado</th>
       <th scope="col">Estado</th>
       <th scope="col">Acciones</th>
 
@@ -72,9 +73,10 @@ if(!$conn){
             echo "<td>" . $row['fechaDevolucion'] . "</td>";
             echo "<td>" . $row['id_usuarios'] . "</td>";
             echo "<td>" . $row['usuario'] . "</td>";
+            echo "<td>" . $row['nombre_libro'] . "</td>";
             echo "<td>" . $row['estado'] . "</td>";
             ?>
-            <td><a href="actualizar.php?clave=<?php echo $row['id'];?>"> <button type="button" class="btn btn-warning"><i class="bi bi-pen"> </i></button> </a>
+            <td><a href="estado.php?clave=<?php echo $row['id'];?>"> <button type="button" class="btn btn-warning"><i class="bi bi-pen"> </i></button> </a>
             <?php 
             echo "</tr>";
         }

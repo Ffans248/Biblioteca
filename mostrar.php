@@ -1,3 +1,4 @@
+<?php include('sesion.php'); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,6 +12,20 @@
 
   </head>
   <body>
+  <div style="position:fixed; left:1.5%; top:2%; font-size:100%"> <a class="nav-link dropdown-toggle" href="#"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false"><i href="#"
+                class="glyphicon glyphicon-user"></i>
+            <?php echo $_SESSION['usuario']; ?>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="RegistroClientes.php">Crear clientes</a></li>
+            <li><a class="dropdown-item" href="RegistroLibro.php">Crear libros</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-danger" href="cerrar_session.php">Cerrar sesión</a></li>
+        </ul>
+    </div>
   <table class="table table-sm table-striped table-bordered">
   <thead>
     <tr>
