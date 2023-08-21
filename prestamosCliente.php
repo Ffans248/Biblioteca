@@ -1,4 +1,12 @@
-<?php include('sesion.php'); ?>
+<?php 
+session_start();
+// error_reporting(0);
+$varsession = $_SESSION['usuario'];
+$sessionID = $_SESSION['id'];
+if ($varsession == null || $varsession == '') {
+    header("Location:index.php");
+    die();
+}; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,60 +20,71 @@
 
   </head>
   <body>
+  <div class="mb-3 text-center"><h1>Historial de cambios</h1></div> 
+    </div>
   <div style="position:fixed; left:1.5%; top:2%; font-size:100%"> <a class="nav-link dropdown-toggle" href="#"
             role="button" data-bs-toggle="dropdown" aria-expanded="false"><i href="#"
                 class="glyphicon glyphicon-user"></i>
             <?php echo $_SESSION['usuario']; ?>
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="RegistroClientes.php">Crear clientes</a></li>
-            <li><a class="dropdown-item" href="RegistroLibro.php">Crear libros</a></li>
-            <li><a class="dropdown-item" href="historial.php">Ver historial de prestamos</a></li>
+            <li><a class="dropdown-item" href="RegistroClientes.php">Registrar Clientes</a></li>
+            <li><a class="dropdown-item" href="RegistroLibro.php">Registrar Libros</a></li>
+            <li><a class="dropdown-item" href="mostrar.php">Ver Clientes y hacer prestamos</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
             <li><a class="dropdown-item text-danger" href="cerrar_session.php">Cerrar sesión</a></li>
         </ul>
     </div>
-  <table class="table table-sm table-striped table-bordered">
+  <table style="margin-top:2.5%;" class=" table table-sm table-striped table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Correo</th>
-      <th scope="col">Telefono</th>
+      <th scope="col">ID</th>
+      <th scope="col">Nombres del Cliente</th>
+      <th scope="col">Fecha de prestamo</th>
+      <th scope="col">Fecha de devolucion</th>
+      <th scope="col">ID Usuario</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Libro Prestado</th>
+      <th scope="col">Estado</th>
       <th scope="col">Acciones</th>
+
+      
     </tr>
   </thead>
   <tbody>
 
   <?php
 //CONEXION
-
 include("conexiondb.php");
-$conn = mysqli_connect($server,$user,$pass,$db);
 if(!$conn){
-    die("La conexion fallo: ". mysqli_connect_error());
+    die("La conexión fallo: " . mysqli_connect_error());
 }else{
-    $sql = "SELECT * FROM clientes";
+    $idCliente = $_GET['clave'];
+    $sql = "SELECT * FROM prestamo where id = $idCliente ";
     $resultado = mysqli_query($conn, $sql);
     if($resultado){
         while($row = $resultado->fetch_array()){
             echo "<tr>";
             echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['nombres'] ."</td>";
-            echo "<td>" . $row['apellidos'] ."</td>";
-            echo "<td>" . $row['correo'] ."</td>";
-            echo "<td>" . $row['tel'] ."</td>";
+            echo "<td>" . $row['id_clientes'] . "</td>";
+            echo "<td>" . $row['nombre_clientes'] . "</td>";
+            echo "<td>" . $row['fechaPrestamo'] . "</td>";
+            echo "<td>" . $row['fechaDevolucion'] . "</td>";
+            echo "<td>" . $row['id_usuarios'] . "</td>";
+            echo "<td>" . $row['usuario'] . "</td>";
+            echo "<td>" . $row['nombre_libro'] . "</td>";
+            echo "<td>" . $row['estado'] . "</td>";
             ?>
-            <td> <a href="Prestamo.php?id=<?php echo $row['id']; ?>&nombres=<?php echo urlencode($row['nombres']); ?>&apellidoss=<?php echo urlencode($row['apellidos']); ?>&correo=<?php echo urlencode($row['correo']); ?>&tel=<?php echo urlencode($row['tel']);?>"><i class="bi bi-plus"></i></button></a>
-            <a href="estado.php?clave=<?php echo $row['id'];?>"> <button type="button" class=""><i class="bi bi-eye"> </i></button> </a></td>
-            <?php
+
+            <?php 
             echo "</tr>";
         }
     }
 }
+
 ?>
   </tbody>
 </table>  

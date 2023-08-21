@@ -20,8 +20,9 @@
             <?php echo $_SESSION['usuario']; ?>
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="historial.php">Ver Clientes y hacer prestamos</a></li>
-            <li><a class="dropdown-item" href="RegistroLibro.php">Crear libros</a></li>
+            <li><a class="dropdown-item" href="mostrar.php">Ver Clientes y hacer prestamos</a></li>
+            <li><a class="dropdown-item" href="historial.php">Ver historial de prestamos</a></li>
+            <li><a class="dropdown-item" href="RegistroLibro.php">Registrar libros</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
@@ -45,7 +46,7 @@
     </div>
     <div class="mb-3" >
         <label for="telefono" class="form-label">Telefono</label>
-        <input type="number" class="form-control" name="tel" placeholder="Telefono" required>
+        <input type="number" class="form-control" name="tel" placeholder="Telefono" min="1" pattern="^[0-9]+" step="1" required>
     </div>
     <div class="d-grid mb-3">
         <button class="btn btn-success" type="submit">Registrar</button>

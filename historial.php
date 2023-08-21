@@ -28,8 +28,9 @@ if ($varsession == null || $varsession == '') {
             <?php echo $_SESSION['usuario']; ?>
         </a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="listado.php">Lista de estudiantes</a></li>
-            <li><a class="dropdown-item" href="registrar.php">Registrar Estudiantes</a></li>
+            <li><a class="dropdown-item" href="RegistroClientes.php">Registrar Clientes</a></li>
+            <li><a class="dropdown-item" href="RegistroLibro.php">Registrar Libros</a></li>
+            <li><a class="dropdown-item" href="mostrar.php">Ver Clientes y hacer prestamos</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
