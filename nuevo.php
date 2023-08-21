@@ -8,14 +8,14 @@ $conn = mysqli_connect($server,$user,$pass,$db);
 if(!$conn){
     die("La conexion fallo: ". mysqli_connect_error());
 }else{
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
+    $nombre = $_POST['nombres'];
+    $apellido = $_POST['apellidos'];
     $correo = $_POST['correo'];
-    $pas = $_POST['pass'];
+    $tel = $_POST['tel'];
 
     $sql = "INSERT INTO usuarios (nombre, apellido,correo,pass)
     VALUE ('". $nombre ."','". $apellido ."', '". $correo ."',
-    '". $pas ."')";
+    '". $tel ."')";
 
     if(mysqli_query($conn, $sql)){
         header("Location: mostrar.php");
