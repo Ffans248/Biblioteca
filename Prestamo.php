@@ -27,23 +27,23 @@ $Tel= $_GET['tel'];
     <div style="margin: 15px;">
     <div class="mb-3" >
         <label for="Nombres" class="form-label">ID del cliente</label>
-        <input type="text" class="form-control" name="idCliente" placeholder="Nombre del Libro" value=" <?php echo $idCliente ?>" disabled  required>
+        <input type="text" class="form-control" name="idCliente" placeholder="Nombre del Libro" value=" <?php echo $idCliente ?>" readonly  required>
     </div>
     <div class="mb-3" >
         <label for="Nombres" class="form-label">Nombres del cliente</label>
-        <input type="text" class="form-control" name="nombresCliente" placeholder="Nombre del Libro" value=" <?php echo $NombresCliente ?>" disabled required>
+        <input type="text" class="form-control" name="nombresCliente" placeholder="Nombre del Libro" value=" <?php echo $NombresCliente ?>" readonly required>
     </div>
     <div class="mb-3" >
         <label for="Apellidos" class="form-label">Apellidos del cliente</label>
-        <input type="text" class="form-control" name="apellidosCliente" placeholder="Editorial" value=" <?php echo $ApellidosCliente ?>" disabled required>
+        <input type="text" class="form-control" name="apellidosCliente" placeholder="Editorial" value=" <?php echo $ApellidosCliente ?>" readonly required>
     </div>
     <div class="mb-3" >
         <label for="Correo" class="form-label">Correo del Cliente</label>
-        <input type="text" class="form-control" name="correoCliente" placeholder="Correo" value=" <?php echo $CorreoCliente  ?>" disabled required>
+        <input type="text" class="form-control" name="correoCliente" placeholder="Correo" value=" <?php echo $CorreoCliente  ?>" readonly required>
     </div>
     <div class="mb-3" >
         <label for="telefono" class="form-label">Telefono del Cliente</label>
-        <input type="text" class="form-control" name="telCliente" placeholder="Descripción" value=" <?php echo$Tel ?>" disabled required>
+        <input type="text" class="form-control" name="telCliente" placeholder="Descripción" value=" <?php echo$Tel ?>" readonly required>
     </div>
     <div class="mb-3" >
     <label for="telefono" class="form-label">Libro prestado:</label>
@@ -67,11 +67,11 @@ $Tel= $_GET['tel'];
                     </select> </div>
                     <div class="mb-3" >
         <label for="telefono" class="form-label">Fecha en la cual se prestó</label>
-        <input type="Date" class="form-control" name="Fprestamo" placeholder="Descripción" value=" <?php echo$Tel ?>"  required>
+        <input type="Date" class="form-control" name="Fprestamo" placeholder="Descripción"   required>
     </div>
     <div class="mb-3" >
         <label for="telefono" class="form-label"> Fecha de devolución</label>
-        <input type="Date" class="form-control" name="Fdevolucion" placeholder="Descripción" value=" <?php echo$Tel ?>"  required>
+        <input type="Date" class="form-control" name="Fdevolucion" placeholder="Descripción"  required>
     </div>
 
  

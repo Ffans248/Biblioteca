@@ -1,5 +1,6 @@
 <?php
 //CONEXION
+session_start();
 $server = "localhost";
 $user = "root";
 $pass = "";
@@ -16,12 +17,14 @@ if(!$conn){
     $libroPrestado = $_POST['libroPrestado'];
     $Fprestado = $_POST ['Fprestamo'];
     $Fdevolucion = $_POST ['Fdevolucion'];
+    $idSesion = $_SESSION['id'];
+    $usuarioSesion = $_SESSION['usuario'];
 
-    $sql = "INSERT INTO prestamo (nombre, editorial, fechaLan, descripcion, autor)
-    VALUE ('$nombre', '$editorial', '$Flanz', '$Desc', '$autor')";
+    $sql = "INSERT INTO prestamo (nombre_libro, id_clientes, nombre_clientes, id_usuarios, usuario, fechaPrestamo, fechaDevolucion, estado)
+    VALUE ('$libroPrestado', '$idCliente', '$nombresCliente', '$idSesion', '$usuarioSesion', '$Fprestado', '$Fdevolucion', 'Pendiente' )";
 
     if(mysqli_query($conn, $sql)){
-        header("Location: mostrar.php");
+        header("Location: historial.php");
     }else{
         echo "Error: " . mysqli_error($conn);
     }

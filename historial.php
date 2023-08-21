@@ -40,18 +40,15 @@ if ($varsession == null || $varsession == '') {
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Primer Nombre</th>
-      <th scope="col">Segundo Nombre</th>
-      <th scope="col">Tercer Nombre</th>
-      <th scope="col">Primer Apellido</th>
-      <th scope="col">Segundo Apellido</th>
-      <th scope="col">Telefono</th>
-      <th scope="col">Grado</th>
-      <th scope="col">Carrera</th>
-      <th scope="col">id Alumno</th>
-      <th scope="col">id Administrador</th>
-      <th scope="col">Usuario Administrador</th>
-      <th scope="col">Cambio que realizó</th>
+      <th scope="col">ID</th>
+      <th scope="col">Nombres del Cliente</th>
+      <th scope="col">Fecha de prestamo</th>
+      <th scope="col">Fecha de devolucion</th>
+      <th scope="col">ID Usuario</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Acciones</th>
+
       
     </tr>
   </thead>
@@ -63,24 +60,22 @@ include("conexiondb.php");
 if(!$conn){
     die("La conexión fallo: " . mysqli_connect_error());
 }else{
-    $sql = "SELECT * FROM historial";
+    $sql = "SELECT * FROM prestamo";
     $resultado = mysqli_query($conn, $sql);
     if($resultado){
         while($row = $resultado->fetch_array()){
             echo "<tr>";
             echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['primernombre'] . "</td>";
-            echo "<td>" . $row['segundonombre'] . "</td>";
-            echo "<td>" . $row['tercernombre'] . "</td>";
-            echo "<td>" . $row['primerapellido'] . "</td>";
-            echo "<td>" . $row['segundoapellido'] . "</td>";
-            echo "<td>" . $row['telefono'] . "</td>";
-            echo "<td>" . $row['grado'] . "</td>";
-            echo "<td>" . $row['carrera'] . "</td>";
-            echo "<td>" . $row['fk_alumnos'] . "</td>";
-            echo "<td>" . $row['fk_administracion'] . "</td>";
-            echo "<td>" . $row['administracion_usuario'] . "</td>";
-            echo "<td>" . $row['action'] . "</td>";
+            echo "<td>" . $row['id_clientes'] . "</td>";
+            echo "<td>" . $row['nombre_clientes'] . "</td>";
+            echo "<td>" . $row['fechaPrestamo'] . "</td>";
+            echo "<td>" . $row['fechaDevolucion'] . "</td>";
+            echo "<td>" . $row['id_usuarios'] . "</td>";
+            echo "<td>" . $row['usuario'] . "</td>";
+            echo "<td>" . $row['estado'] . "</td>";
+            ?>
+            <td><a href="actualizar.php?clave=<?php echo $row['id'];?>"> <button type="button" class="btn btn-warning"><i class="bi bi-pen"> </i></button> </a>
+            <?php 
             echo "</tr>";
         }
     }
