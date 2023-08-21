@@ -11,12 +11,12 @@ if (!empty($_POST["log"])) {
 
     } else {
         
-        $sql=$conn->query("select * from administracion where usuario='$usuario' and pass='$pass'");
+        $sql=$conn->query("select * from usuarios where usuario='$usuario' and pass='$pass'");
         if ($datos=$sql->fetch_object()) {  
             $_SESSION['usuario']=$usuario;
             $_SESSION['id']=$datos->id;
             
-        header("Location:registrar.php");
+        header("Location:registroClientes.php");
          
           
         } else {

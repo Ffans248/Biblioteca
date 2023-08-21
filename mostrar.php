@@ -42,8 +42,8 @@ if(!$conn){
             echo "<td>" . $row['correo'] ."</td>";
             echo "<td>" . $row['tel'] ."</td>";
             ?>
-            <td> <a href="prestamo.php?id=<?php echo $row['id']; ?>&primernombre=<?php echo urlencode($row['primernombre']); ?>&segundonombre=<?php echo urlencode($row['segundonombre']); ?>&tercernombre=<?php echo urlencode($row['tercernombre']); ?>&primerapellido=<?php echo urlencode($row['primerapellido']); ?>&segundoapellido=<?php echo urlencode($row['segundoapellido']); ?>&telefono=<?php echo urlencode($row['telefono']); ?>&grado=<?php echo urlencode($row['grado']); ?>&carrera=<?php echo urlencode($row['carrera']); ?>"><i class="bi bi-pencil"></i></button></a>
-            <a href="admindelete.php?id=<?php echo $row['id']; ?>&primernombre=<?php echo urlencode($row['primernombre']); ?>&segundonombre=<?php echo urlencode($row['segundonombre']); ?>&tercernombre=<?php echo urlencode($row['tercernombre']); ?>&primerapellido=<?php echo urlencode($row['primerapellido']); ?>&segundoapellido=<?php echo urlencode($row['segundoapellido']); ?>&telefono=<?php echo urlencode($row['telefono']); ?>&grado=<?php echo urlencode($row['grado']); ?>&carrera=<?php echo urlencode($row['carrera']); ?>"><i class="bi bi-trash"></i></button></a></td>
+            <td> <a href="Prestamo.php?id=<?php echo $row['id']; ?>&nombres=<?php echo urlencode($row['nombres']); ?>&apellidoss=<?php echo urlencode($row['apellidos']); ?>&correo=<?php echo urlencode($row['correo']); ?>&tel=<?php echo urlencode($row['tel']);?>"><i class="bi bi-plus"></i></button></a>
+            
             <?php
             echo "</tr>";
         }
